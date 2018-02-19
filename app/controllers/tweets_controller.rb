@@ -8,7 +8,11 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
 
     if @tweet.save
-      redirect_to tweets_path
+      respond_to do |format|
+        format.json {
+          render json: {tweets: {message: @tweet.message, created_at: @tweet.created_at.strftime('%b %e, %l:%M %p')}}
+        }
+      end
     else
       render :index
     end
