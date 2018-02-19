@@ -6,8 +6,14 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweet_params)
-
+    puts tweet_params
+    # in the solution code at wdi-ajax-forms this is not wrapped in an
+    # if statement, find out why, do we not need to check this stuff
+    # with ajax because it has a .fail function?
     if @tweet.save
+      # respond_to do |format|
+      #   format.html { render partial: "tweet" }
+      # end
       redirect_to tweets_path
     else
       render :index
