@@ -2,8 +2,13 @@
 // All this logic will automatically be available in application.js.
 document.addEventListener('DOMContentLoaded', function(){
 
+  console.log("I'm loaded");
+
   var tweetUlEl = document.querySelector('.tweets');
   var tweetFormEl = document.querySelector('#new_tweet');
+  var tweetSubmitEl = document.querySelector('#create-tweet');
+
+  console.log(tweetSubmitEl);
 
   tweetFormEl.addEventListener('submit', function(e){
     e.preventDefault();
@@ -23,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function(){
       newLi.append(timeEl);
       newLi.classList.add('tweet');
       tweetUlEl.prepend(newLi);
+      tweetSubmitEl.disabled = false;
     }).fail(function(_,b,c){
       console.log('failed to tweet');
     })
