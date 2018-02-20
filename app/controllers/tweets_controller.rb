@@ -11,6 +11,7 @@ class TweetsController < ApplicationController
       respond_to do |format|
         format.json {
           render json: {tweets: {message: @tweet.message, created_at: @tweet.created_at.strftime('%b %e, %l:%M %p')}}
+          puts @tweet.to_json
         }
       end
     else
