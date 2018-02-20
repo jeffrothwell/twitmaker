@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function(){
       newLi.append(timeEl);
       newLi.classList.add('tweet');
       tweetUlEl.prepend(newLi);
-      tweetSubmitEl.disabled = false;
     }).fail(function(_,b,c){
       console.log('failed to tweet');
     })
