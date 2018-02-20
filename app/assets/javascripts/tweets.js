@@ -9,11 +9,11 @@ document.addEventListener('DOMContentLoaded', function(){
     e.preventDefault();
     $.ajax({
       url: "/tweets",
-      mehtod: "POST",
+      method: "post",
       dataType: "html",
       data: $(this).serialize()
     }).done(function(data){
-      console.log(data);
+      $(tweetList).prepend(data);
     })
   });
 

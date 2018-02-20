@@ -11,10 +11,10 @@ class TweetsController < ApplicationController
     # if statement, find out why, do we not need to check this stuff
     # with ajax because it has a .fail function?
     if @tweet.save
-      # respond_to do |format|
-      #   format.html { render partial: "tweet" }
-      # end
-      redirect_to tweets_path
+      respond_to do |format|
+        format.html { render partial: "tweet" }
+      end
+      # redirect_to tweets_path
     else
       render :index
     end
